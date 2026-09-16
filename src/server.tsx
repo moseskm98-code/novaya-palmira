@@ -16,7 +16,7 @@ app.use('/assets/*',serveStatic({root:'./dist'}));
 for(const path of ['/images/*','/brand/*','/fonts/*','/floorplans/*'])app.use(path,serveStatic({root:'./public'}));
 app.get('/video/:file',async c=>{
   const name=c.req.param('file');
-  if(!['quarter-overview.mp4','comfort-service.mp4','construction.mp4','infrastructure.mp4','electricity.mp4','community-event.mp4'].includes(name))return c.notFound();
+  if(!['quarter-overview.mp4','comfort-service.mp4','construction.mp4','infrastructure.mp4'].includes(name))return c.notFound();
   const file=Bun.file(`./public/video/${name}`); const size=file.size; const range=c.req.header('range');
   if(range){
     const match=/^bytes=(\d*)-(\d*)$/.exec(range);

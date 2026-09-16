@@ -5,5 +5,3 @@ import { routePath } from './sitePath';
 import './app.css';
 const root = document.getElementById('root');
 if (root) hydrateRoot(root, <App path={routePath(window.location.pathname)} />);
-
-import "./content.css";
