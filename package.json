@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun run build && bun --watch src/server.tsx",
     "build": "bun build src/client.tsx --outdir dist/assets --target browser --minify --external \"/fonts/*\"",
+    "build:pages": "bun scripts/export-pages.ts",
     "start": "bun src/server.tsx",
     "typecheck": "tsc --noEmit",
     "test": "bun test tests/app.test.ts"

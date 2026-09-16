@@ -6,6 +6,7 @@ import { bodyLimit } from 'hono/body-limit';
 import { renderToString } from 'react-dom/server';
 import { App } from './App';
 import { findPage, pages, phone } from './data';
+import { siteBase, sitePath } from './sitePath';
 
 const escape=(value:string)=>value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 export const app=new Hono();
@@ -50,10 +51,10 @@ app.post('/api/contact',bodyLimit({maxSize:8192,onError:c=>c.json({error:'Сли
   c.header('Cache-Control','no-store');
   return c.json({status:'draft',message,url:`https://wa.me/${phone.whatsapp}?text=${encodeURIComponent(message)}`});
 });
-function html(path:string){
+export function html(path:string){
   const page=findPage(path);const title=page?`${page.key==='home'?'Новая Пальмира — квартиры в Махачкале':page.nav+' — Новая Пальмира'}`:'Страница не найдена — Новая Пальмира';
   const body=renderToString(<App path={path}/>);
-  return `<!doctype html><html lang="ru"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#faf8f3"/><title>${escape(title)}</title><meta name="description" content="${escape(page?.lead.replace(/\n/g,' ')||'Жилой квартал Новая Пальмира')}"/><link rel="icon" href="/brand/palmira-mark-gold.png"/><link rel="preload" href="/fonts/Arsenal-Regular.ttf" as="font" type="font/ttf" crossorigin/><link rel="preload" href="/fonts/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin/><link rel="stylesheet" href="/assets/client.css"/></head><body><div id="root">${body}</div><script type="module" src="/assets/client.js"></script></body></html>`;
+  return `<!doctype html><html lang="ru" data-base-path="${escape(siteBase)}"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#faf8f3"/><title>${escape(title)}</title><meta name="description" content="${escape(page?.lead.replace(/\n/g,' ')||'Жилой квартал Новая Пальмира')}"/><link rel="icon" href="${sitePath('/brand/palmira-mark-gold.png')}"/><link rel="preload" href="${sitePath('/fonts/Arsenal-Regular.ttf')}" as="font" type="font/ttf" crossorigin/><link rel="preload" href="${sitePath('/fonts/Montserrat-Regular.ttf')}" as="font" type="font/ttf" crossorigin/><link rel="stylesheet" href="${sitePath('/assets/client.css')}"/></head><body><div id="root">${body}</div><script type="module" src="${sitePath('/assets/client.js')}"></script></body></html>`;
 }
 for(const page of pages)app.get(page.path,c=>c.html(html(page.path)));
 app.get('*',c=>{
