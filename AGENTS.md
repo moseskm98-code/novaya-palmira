@@ -1,6 +1,6 @@
 # Prototype Instructions
 
-User rollback 2026-09-16: restore site content and design to commit 0889bd9, before the request about missing electricity/family information and removing visualization badges. Preserve GitHub Pages deployment support. Five original routes and visible visualization badges are restored.
+User rollback 2026-09-16: restore site content and design to commit 0889bd9, before the request about missing electricity/family information. Preserve GitHub Pages deployment support and five original routes. Latest user clarification: keep visible visualization badges removed.
 
 User decision 2026-09-16: implement displayed concept 1 from ../design-research-2026-09-16/concept-01.png using Hono + Bun + React. This supersedes the template's Vite/Sites runtime conventions. Five primary routes only: home, management, developer, mansards, commercial. Each includes navigation and floorplans. Use original logos and bundled Montserrat/Arsenal fonts. Old briefs are content evidence only, not active design requirements. Do not claim real lead delivery without a configured receiver and confirmed response.
 
