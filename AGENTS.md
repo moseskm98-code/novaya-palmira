@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+User feedback 2026-09-16: remove visible “Визуализация” badges from images. Propose missing content, especially electricity supply (home block plus dedicated page) and family environment on the home page, but do not implement content additions until the user approves them.
+
 User decision 2026-09-16: implement displayed concept 1 from ../design-research-2026-09-16/concept-01.png using Hono + Bun + React. This supersedes the template's Vite/Sites runtime conventions. Five primary routes only: home, management, developer, mansards, commercial. Each includes navigation and floorplans. Use original logos and bundled Montserrat/Arsenal fonts. Old briefs are content evidence only, not active design requirements. Do not claim real lead delivery without a configured receiver and confirmed response.
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
