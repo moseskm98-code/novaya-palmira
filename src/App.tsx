@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { ArrowRight, ArrowLeft, Play, X, List, Plus, MapPin, Phone, MagnifyingGlassPlus, Check } from '@phosphor-icons/react';
-import { pages, findPage, plans, categories, faqs, address, phone, type Plan, type Category } from './data';
+import { pages, findPage, plans, categories, faqs, address, phone, type PlanFilter } from './data';
 import { siteBase, sitePath } from './sitePath';
 
 type ModalKind = 'video'|'plan'|'quarter'|'faq'|'privacy'|'draft'|null;
@@ -27,7 +27,7 @@ export function App({path}:{path:string}) {
   const page=findPage(path);
   const [menu,setMenu]=useState(false);
   const [modal,setModal]=useState<ModalKind>(null);
-  const [category,setCategory]=useState<Category>('1k');
+  const [category,setCategory]=useState<PlanFilter>('all');
   const [planId,setPlanId]=useState('42-73');
   const [request,setRequest]=useState('');
   const [status,setStatus]=useState<'idle'|'loading'|'error'>('idle');
@@ -47,11 +47,11 @@ export function App({path}:{path:string}) {
   if(!page) return <main className="not-found"><Brand/><h1>Такой страницы нет</h1><p>Продолжите знакомство с Новой Пальмирой.</p><a className="button" href={sitePath('/')}>На главную <ArrowRight/></a></main>;
   const home=page.key==='home';
   const special=page.key==='mansards'||page.key==='commercial';
-  const selection=plans.filter(p=>p.category===category);
+  const selection=category==='all'?plans:plans.filter(p=>p.category===category);
   const plan=selection.find(p=>p.id===planId)||selection[0];
   const planIndex=selection.findIndex(p=>p.id===plan.id);
   const requestText=page.key==='commercial'?'Подбор коммерческого помещения':page.key==='mansards'?'Подбор мансарды':'';
-  const chooseCategory=(key:Category)=>{setCategory(key);setPlanId(plans.find(p=>p.category===key)!.id);};
+  const chooseCategory=(key:PlanFilter)=>{setCategory(key);setPlanId((key==='all'?plans[0]:plans.find(p=>p.category===key))!.id);};
   const selectPlan=(offset:number)=>setPlanId(selection[(planIndex+offset+selection.length)%selection.length].id);
   const startRequest=(text:string)=>{setRequest(text);setModal(null);setMenu(false);setStatus('idle');setError('');setTimeout(()=>{document.getElementById('visit')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});formRef.current?.querySelector<HTMLInputElement>('input[name=name]')?.focus({preventScroll:true});},40);};
   async function submit(e:FormEvent<HTMLFormElement>){
@@ -83,7 +83,7 @@ export function App({path}:{path:string}) {
         <img className="hero-image" src={sitePath(page.image)} alt={page.imageAlt} fetchPriority="high"/>
         <div className="hero-content"><p className="eyebrow">{page.eyebrow}</p><h1 id="hero-title">{page.title}</h1><p className="hero-lead">{page.lead}</p><div className="hero-actions">{special?<button className="button" onClick={()=>startRequest(requestText)}>{page.cta}<ArrowRight size={19}/></button>:<a className="button" href="#plans">{page.cta}<ArrowRight size={19}/></a>}<button className="video-link" onClick={()=>setModal('video')}><span className="play-outline"><Play size={14} weight="fill"/></span>{page.key==='management'?'Смотреть работу УК':page.key==='developer'?'Смотреть строительство':page.key==='commercial'?'Смотреть окружение':'Смотреть квартал'}</button></div></div>
         {home&&<p className="hero-aside">Современный квартал<br/>с продуманной средой,<br/>где есть всё для комфортной<br/>жизни в Махачкале.</p>}
-        <p className="hero-caption">{page.caption}</p>
+        {page.caption&&<p className="hero-caption">{page.caption}</p>}
       </section>
       <section className="video-section section-shell" aria-labelledby="video-title">
         <button className="video-preview" onClick={()=>setModal('video')} aria-label={`Смотреть видео: ${page.videoTitle.replace('\n',' ')}`}><img src={sitePath(page.poster)} alt={page.key==='commercial'?'Инфраструктура квартала':'Реальная фотография Новой Пальмиры'} loading="lazy"/><span className="play-large"><Play size={38} weight="fill"/></span><span className="video-preview-caption">{page.key==='mansards'?'Обзор квартала':'Новая Пальмира · Видео'}</span></button>
@@ -94,10 +94,18 @@ export function App({path}:{path:string}) {
       <section id="plans" className="plans section-shell" aria-labelledby="plans-title">
         <div className="section-heading"><h2 id="plans-title">{special?'Квартиры в квартале':'Планировка под ваш ритм'}</h2><span/><p>{special?'Общий каталог жилых квартир. Не является подборкой мансард или коммерческих помещений.':'Продуманные планировки для разных жизненных сценариев — от первого собственного жилья до семейного комфорта.'}</p></div>
         <div className="plan-tabs" role="tablist" aria-label="Количество комнат">{categories.map((c,i)=><button key={c.key} role="tab" id={`tab-${c.key}`} aria-selected={category===c.key} aria-controls="plan-panel" tabIndex={category===c.key?0:-1} onClick={()=>chooseCategory(c.key)} onKeyDown={e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const next=categories[(i+(e.key==='ArrowRight'?1:-1)+categories.length)%categories.length];chooseCategory(next.key);document.getElementById(`tab-${next.key}`)?.focus();}}}>{c.label}</button>)}</div>
-        <div className="plan-layout" role="tabpanel" id="plan-panel" aria-labelledby={`tab-${category}`}>
-          <div className="plan-visual"><button className="plan-image-button" onClick={()=>setModal('plan')} aria-label={`Увеличить планировку ${plan.area} м²`}><img src={sitePath(plan.src)} alt={`План: ${plan.title}, ${plan.area} м²`} loading="lazy"/><span className="zoom-hint"><MagnifyingGlassPlus size={18}/>Увеличить</span></button></div>
-          <div className="plan-info" aria-live="polite"><h3>{plan.title}</h3><div className="plan-area">{plan.area}<span>м²</span></div><p>{plan.description}</p><button className="button" onClick={()=>startRequest(`${plan.title}, ${plan.area} м²`)}>Узнать условия<ArrowRight size={18}/></button><div className="plan-pagination"><button className="icon-button" onClick={()=>selectPlan(-1)} aria-label="Предыдущая планировка"><ArrowLeft size={20}/></button><span>{String(planIndex+1).padStart(2,'0')}<small> / {String(selection.length).padStart(2,'0')}</small></span><button className="icon-button" onClick={()=>selectPlan(1)} aria-label="Следующая планировка"><ArrowRight size={20}/></button></div></div>
+        <div key={category} className="plan-track" role="tabpanel" id="plan-panel" aria-labelledby={`tab-${category}`} tabIndex={0} onScroll={e=>{
+          if(!matchMedia('(max-width: 700px)').matches)return;
+          const index=Math.round(e.currentTarget.scrollLeft/e.currentTarget.clientWidth);
+          const current=selection[Math.max(0,Math.min(index,selection.length-1))];
+          if(current)setPlanId(current.id);
+        }}>
+          {selection.map((item,index)=><div key={item.id} className={`plan-layout ${item.id===plan.id?'is-active':''}`}>
+            <div className="plan-visual"><button className="plan-image-button" onClick={()=>{setPlanId(item.id);setModal('plan');}} aria-label={`Увеличить планировку ${item.area} м²`}><img src={sitePath(item.src)} alt={`План: ${item.title}, ${item.area} м²`} loading="lazy" draggable={false}/><span className="zoom-hint"><MagnifyingGlassPlus size={18}/>Увеличить</span></button></div>
+            <div className="plan-info"><h3>{item.title}</h3><div className="plan-area">{item.area.split(',')[0]},<small className="plan-decimal">{item.area.split(',')[1]}</small><span>м²</span></div><p>{item.description}</p><button className="button" onClick={()=>startRequest(`${item.title}, ${item.area} м²`)}>Узнать условия<ArrowRight size={18}/></button><div className="plan-pagination"><button className="icon-button" onClick={()=>selectPlan(-1)} aria-label="Предыдущая планировка"><ArrowLeft size={20}/></button><span>{String(index+1).padStart(2,'0')}<small> / {String(selection.length).padStart(2,'0')}</small></span><button className="icon-button" onClick={()=>selectPlan(1)} aria-label="Следующая планировка"><ArrowRight size={20}/></button></div></div>
+          </div>)}
         </div>
+        <p className="sr-only" role="status">Планировка {planIndex+1} из {selection.length}: {plan.title}, {plan.area} м²</p>
       </section>
       <section className="trust section-shell" aria-label="О проекте"><article><h3>О квартале</h3><p>Новая Пальмира — жилой квартал в Махачкале с благоустроенной территорией и повседневными сервисами рядом.</p><button className="text-link" onClick={()=>setModal('quarter')}>Узнать больше<ArrowRight size={18}/></button></article><article><h3>Кто строит</h3><p>Проект реализует Мегаполис Групп. Познакомьтесь с готовыми домами и подходом компании к строительству.</p><a className="text-link" href={sitePath('/zastroishchik')}>О компании<ArrowRight size={18}/></a></article><article><h3>Кто заботится о доме</h3><p>Управляющая компания Мегаполис Комфорт занимается общими пространствами, территорией и обслуживанием домов.</p><a className="text-link" href={sitePath('/upravlyayushchaya-kompaniya')}>Подробнее<ArrowRight size={18}/></a></article></section>
       <div className="essential-links section-shell"><button onClick={()=>setModal('quarter')}><MapPin size={18}/>Расположение и схема квартала</button><button onClick={()=>setModal('faq')}>Условия и вопросы о покупке<Plus size={18}/></button><a href={phone.href}><Phone size={18}/>{phone.label}</a></div>
