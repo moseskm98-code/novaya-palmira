@@ -15,5 +15,6 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 /* The mobile catalogue uses native touch scrolling and snaps whole cards. */
 .plan-track{min-width:0}.plan-track>.plan-layout{display:none}.plan-track>.plan-layout.is-active{display:grid}.plan-area .plan-decimal{font-size:.52em;letter-spacing:0}.plan-track:focus-visible{outline-offset:3px}
+.plan-variant{font-weight:600;color:var(--ink)}
 @media(max-width:700px){.plan-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none}.plan-track::-webkit-scrollbar{display:none}.plan-track>.plan-layout,.plan-track>.plan-layout.is-active{display:grid;flex:0 0 100%;width:100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}.plan-pagination .icon-button{display:none}.plan-tabs{scrollbar-width:none}.plan-tabs::-webkit-scrollbar{display:none}}
 @media(prefers-reduced-motion:reduce){.plan-track{scroll-behavior:auto}}

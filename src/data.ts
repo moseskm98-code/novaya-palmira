@@ -17,22 +17,30 @@ export const pages: Page[] = [
 export const findPage = (path: string) => pages.find(p => p.path === (path.replace(/\/$/, '') || '/'));
 export type Category = '1k'|'e2'|'2k'|'3k';
 export type PlanFilter = Category|'all';
-export type Plan = {id:string;category:Category;area:string;title:string;description:string;src:string};
+export type Plan = {id:string;category:Category;area:string;title:string;variant:string;description:string;src:string};
 export const categories: {key:PlanFilter;label:string}[] = [{key:'all',label:'Все'},{key:'1k',label:'1-комнатные'},{key:'e2',label:'Евроформат'},{key:'2k',label:'2-комнатные'},{key:'3k',label:'3-комнатные'}];
 export const plans: Plan[] = [
-  {id:'42-73',category:'1k',area:'42,73',title:'1-комнатная квартира',description:'Удобное и функциональное пространство с отдельной кухней, балконом и гардеробной. Для спокойной жизни в Новой Пальмире.',src:'/floorplans/apartment-42-73.webp'},
-  {id:'50-47',category:'1k',area:'50,47',title:'1-комнатная квартира',description:'Отдельная кухня 11,68 м², жилая комната и балкон. Рассмотрите план и представьте свой ежедневный маршрут.',src:'/floorplans/apartment-50-47.webp'},
-  {id:'51-92',category:'1k',area:'51,92',title:'1-комнатная квартира',description:'Просторная жилая комната и отдельная кухня. Увеличьте чертёж, чтобы рассмотреть все помещения.',src:'/floorplans/apartment-51-92.webp'},
-  {id:'52-37',category:'1k',area:'52,37',title:'1-комнатная квартира',description:'Кухня 16,14 м², балкон и отдельная жилая комната.',src:'/floorplans/apartment-52-37.webp'},
-  {id:'56-32',category:'1k',area:'56,32',title:'1-комнатная квартира',description:'Квартира с большой кухней 22,30 м². Планировка для разных сценариев жизни.',src:'/floorplans/apartment-56-32.webp'},
-  {id:'e2-55-3',category:'e2',area:'55,3',title:'Квартира евроформата',description:'Кухня-гостиная 28,52 м² объединяет общение и повседневные дела. Спальня остаётся отдельным пространством.',src:'/floorplans/apartment-e2-55-3.webp'},
-  {id:'e2-59-4',category:'e2',area:'59,4',title:'Квартира евроформата',description:'Кухня-гостиная 30,10 м² и отдельная спальня. Место для встреч и личного времени.',src:'/floorplans/apartment-e2-59-4.webp'},
-  {id:'66-16',category:'2k',area:'66,16',title:'2-комнатная квартира',description:'Две изолированные комнаты и отдельная кухня. Пространство для каждого члена семьи.',src:'/floorplans/apartment-66-16.webp'},
-  {id:'84-08',category:'2k',area:'84,08',title:'2-комнатная квартира',description:'Две комнаты, гардеробная и два балкона. Больше места для привычных вещей и новых планов.',src:'/floorplans/apartment-84-08.webp'},
-  {id:'85-75',category:'2k',area:'85,75',title:'2-комнатная квартира',description:'Две жилые комнаты и кухня 16,96 м². Все размеры — на оригинальном чертеже.',src:'/floorplans/apartment-85-75.webp'},
-  {id:'86-09',category:'2k',area:'86,09',title:'2-комнатная квартира',description:'Отдельные комнаты, гардеробная и балкон.',src:'/floorplans/apartment-86-09.webp'},
-  {id:'109-75',category:'3k',area:'109,75',title:'3-комнатная квартира',description:'Большая гостиная, спальни и два балкона. Для семейной жизни и личного пространства.',src:'/floorplans/apartment-109-75.webp'},
-  {id:'140-06',category:'3k',area:'140,06',title:'3-комнатная квартира',description:'Гостиная 46,37 м² и кухня 24,81 м². Просторный формат для большой семьи.',src:'/floorplans/apartment-140-06.webp'},
+  {id:'b37-t03-42-73',category:'1k',area:'42,73',title:'1-комнатная квартира',variant:'Блоки 3 и 7, тип 3',description:'Кухня 14,61 м², общая комната 13,42 м², гардеробная 2,15 м² и балкон 3,02 м².',src:'/floorplans/apartment-b37-t03-42-73.webp'},
+  {id:'b37-t09-42-73',category:'1k',area:'42,73',title:'1-комнатная квартира',variant:'Блоки 3 и 7, тип 9',description:'Кухня 14,61 м², общая комната 13,42 м², гардеробная 2,15 м² и балкон 3,02 м².',src:'/floorplans/apartment-b37-t09-42-73.webp'},
+  {id:'b4-t07-50-42',category:'1k',area:'50,42',title:'1-комнатная квартира',variant:'Блок 4, тип 7',description:'Кухня 11,68 м², общая комната 18,92 м², гардеробная 2,37 м² и балкон 3,05 м².',src:'/floorplans/apartment-b4-t07-50-42.webp'},
+  {id:'b4-t06-51-92',category:'1k',area:'51,92',title:'1-комнатная квартира',variant:'Блок 4, тип 6',description:'Кухня 16,20 м², общая комната 23,71 м² и балкон 2,97 м².',src:'/floorplans/apartment-b4-t06-51-92.webp'},
+  {id:'b4-t05-52-37',category:'1k',area:'52,37',title:'1-комнатная квартира',variant:'Блок 4, тип 5',description:'Кухня 16,14 м², общая комната 19,37 м² и балкон 3,56 м².',src:'/floorplans/apartment-b4-t05-52-37.webp'},
+  {id:'b4-t03-56-32',category:'1k',area:'56,32',title:'1-комнатная квартира',variant:'Блок 4, тип 3',description:'Кухня 22,30 м², общая комната 19,95 м² и балкон 3,47 м².',src:'/floorplans/apartment-b4-t03-56-32.webp'},
+  {id:'b37-t05-55-3',category:'e2',area:'55,3',title:'Квартира евроформата',variant:'Блоки 3 и 7, тип 5',description:'Кухня-гостиная 28,52 м², спальня 12,38 м², гардеробная 2,85 м² и балкон 3,27 м².',src:'/floorplans/apartment-b37-t05-55-3.webp'},
+  {id:'b37-t06-59-4',category:'e2',area:'59,4',title:'Квартира евроформата',variant:'Блоки 3 и 7, тип 6',description:'Кухня-гостиная 30,10 м², спальня 13,31 м², гардеробная 2,85 м² и лоджия 3,93 м².',src:'/floorplans/apartment-b37-t06-59-4.webp'},
+  {id:'b37-t07-55-3',category:'e2',area:'55,3',title:'Квартира евроформата',variant:'Блоки 3 и 7, тип 7',description:'Кухня-гостиная 28,52 м², спальня 12,38 м², гардеробная 2,85 м² и балкон 3,27 м².',src:'/floorplans/apartment-b37-t07-55-3.webp'},
+  {id:'b37-t12-55-3',category:'e2',area:'55,3',title:'Квартира евроформата',variant:'Блоки 3 и 7, тип 12',description:'Кухня-гостиная 28,53 м², спальня 12,38 м², гардеробная 2,85 м² и балкон 3,27 м².',src:'/floorplans/apartment-b37-t12-55-3.webp'},
+  {id:'b37-t13-59-4',category:'e2',area:'59,4',title:'Квартира евроформата',variant:'Блоки 3 и 7, тип 13',description:'Кухня-гостиная 30,10 м², спальня 13,31 м², гардеробная 2,85 м² и лоджия 3,93 м².',src:'/floorplans/apartment-b37-t13-59-4.webp'},
+  {id:'b37-t14-55-3',category:'e2',area:'55,3',title:'Квартира евроформата',variant:'Блоки 3 и 7, тип 14',description:'Кухня-гостиная 28,52 м², спальня 12,38 м², гардеробная 2,85 м² и балкон 3,26 м².',src:'/floorplans/apartment-b37-t14-55-3.webp'},
+  {id:'b37-t02-66-16',category:'2k',area:'66,16',title:'2-комнатная квартира',variant:'Блоки 3 и 7, тип 2',description:'Кухня 9,45 м², общая комната 23,09 м², спальня 17,28 м² и балкон 3,05 м².',src:'/floorplans/apartment-b37-t02-66-16.webp'},
+  {id:'b37-t10-66-16',category:'2k',area:'66,16',title:'2-комнатная квартира',variant:'Блоки 3 и 7, тип 10',description:'Кухня 9,45 м², общая комната 23,09 м², спальня 17,28 м² и балкон 3,05 м².',src:'/floorplans/apartment-b37-t10-66-16.webp'},
+  {id:'b4-t01-84-92',category:'2k',area:'84,92',title:'2-комнатная квартира',variant:'Блок 4, тип 1',description:'Кухня 22,91 м², общая комната 18,68 м², спальня 16,53 м² и балкон 3,58 м².',src:'/floorplans/apartment-b4-t01-84-92.webp'},
+  {id:'b37-t01-85-75',category:'2k',area:'85,75',title:'2-комнатная квартира',variant:'Блоки 3 и 7, тип 1',description:'Кухня 16,96 м², общая комната 19,37 м², спальня 17,25 м² и два балкона 3,18 м² и 3,56 м².',src:'/floorplans/apartment-b37-t01-85-75.webp'},
+  {id:'b37-t11-85-75',category:'2k',area:'85,75',title:'2-комнатная квартира',variant:'Блоки 3 и 7, тип 11',description:'Кухня 16,96 м², общая комната 19,37 м², спальня 17,25 м² и два балкона 3,18 м² и 3,56 м².',src:'/floorplans/apartment-b37-t11-85-75.webp'},
+  {id:'b4-t04-86-09',category:'2k',area:'86,09',title:'2-комнатная квартира',variant:'Блок 4, тип 4',description:'Кухня 17,79 м², общая комната 23,62 м², спальня 21,43 м², гардеробная 3,42 м² и балкон 3,36 м².',src:'/floorplans/apartment-b4-t04-86-09.webp'},
+  {id:'b37-t04-109-75',category:'3k',area:'109,75',title:'3-комнатная квартира',variant:'Блоки 3 и 7, тип 4',description:'Кухня 17,63 м², общая комната 19,37 м², спальни 23,55 м² и 17,63 м², два балкона 3,56 м² и 3,06 м².',src:'/floorplans/apartment-b37-t04-109-75.webp'},
+  {id:'b37-t08-109-75',category:'3k',area:'109,75',title:'3-комнатная квартира',variant:'Блоки 3 и 7, тип 8',description:'Кухня 17,63 м², общая комната 19,37 м², спальни 23,55 м² и 17,63 м², два балкона 3,56 м² и 3,06 м².',src:'/floorplans/apartment-b37-t08-109-75.webp'},
+  {id:'b4-t02-139-58',category:'3k',area:'139,58',title:'3-комнатная квартира',variant:'Блок 4, тип 2',description:'Общая комната 46,37 м², кухня 24,81 м², спальни 19,01 м² и 18,73 м², кладовая 2,25 м², гардеробная 3,37 м² и балкон 3,49 м².',src:'/floorplans/apartment-b4-t02-139-58.webp'},
 ];
 export const faqs = [
   ['Как узнать актуальную стоимость?', 'Выберите планировку и расскажите о своих пожеланиях. Наличие, стоимость и условия уточняются в офисе продаж для конкретной квартиры.'],
