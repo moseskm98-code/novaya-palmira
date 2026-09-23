@@ -1,0 +1,218 @@
+{
+  "source": "Квартирография блок (3_4_7) по отдельности  .pdf",
+  "sourceSha256": "ae5c0b73c129856c45155a1243242eb16cde4ae5dd078b23980360c843677af1",
+  "pageCount": 9,
+  "verifiedOn": "2026-09-23",
+  "plans": [
+    {
+      "id": "b37-t01-85-75",
+      "page": 1,
+      "column": 1,
+      "category": "2k",
+      "area": "85,75",
+      "variant": "Блоки 3 и 7, тип 1",
+      "asset": "public/floorplans/apartment-b37-t01-85-75.webp",
+      "sha256": "7e9c5939e49d786cd9762e4578aa8477e49b107a5ecc86010517dc8caae39011"
+    },
+    {
+      "id": "b37-t02-66-16",
+      "page": 1,
+      "column": 2,
+      "category": "2k",
+      "area": "66,16",
+      "variant": "Блоки 3 и 7, тип 2",
+      "asset": "public/floorplans/apartment-b37-t02-66-16.webp",
+      "sha256": "1a0553f568f4bde1479a53e7366c106fc4b6fd3b07dccb76ee8ef7d1ade08122"
+    },
+    {
+      "id": "b37-t03-42-73",
+      "page": 2,
+      "column": 1,
+      "category": "1k",
+      "area": "42,73",
+      "variant": "Блоки 3 и 7, тип 3",
+      "asset": "public/floorplans/apartment-b37-t03-42-73.webp",
+      "sha256": "f8bb5dc09522a209a63ee5c1638e201643504cf06325a91f85c8f872c803caeb"
+    },
+    {
+      "id": "b37-t04-109-75",
+      "page": 2,
+      "column": 2,
+      "category": "3k",
+      "area": "109,75",
+      "variant": "Блоки 3 и 7, тип 4",
+      "asset": "public/floorplans/apartment-b37-t04-109-75.webp",
+      "sha256": "6d9e3523e56fafd8834407dfd5d01e4fa8c2ac6caf8589202b1db1a14bc4e349"
+    },
+    {
+      "id": "b37-t05-55-3",
+      "page": 3,
+      "column": 1,
+      "category": "e2",
+      "area": "55,3",
+      "variant": "Блоки 3 и 7, тип 5",
+      "asset": "public/floorplans/apartment-b37-t05-55-3.webp",
+      "sha256": "adefa3ecaf6531f664e5044ebd8ad9712930a8bd8e80cb7529d6adaa75aaf6e4"
+    },
+    {
+      "id": "b37-t06-59-4",
+      "page": 3,
+      "column": 2,
+      "category": "e2",
+      "area": "59,4",
+      "variant": "Блоки 3 и 7, тип 6",
+      "asset": "public/floorplans/apartment-b37-t06-59-4.webp",
+      "sha256": "09f345b502d17ea39b75dfdd78727061e6480ec7ecfabb5f4cf498f1fa43cb94"
+    },
+    {
+      "id": "b37-t07-55-3",
+      "page": 3,
+      "column": 3,
+      "category": "e2",
+      "area": "55,3",
+      "variant": "Блоки 3 и 7, тип 7",
+      "asset": "public/floorplans/apartment-b37-t07-55-3.webp",
+      "sha256": "239259d57ef39f9d8eb3f55262fa8af470907f328aa4a561f3b0ca959a410ebb"
+    },
+    {
+      "id": "b37-t08-109-75",
+      "page": 4,
+      "column": 1,
+      "category": "3k",
+      "area": "109,75",
+      "variant": "Блоки 3 и 7, тип 8",
+      "asset": "public/floorplans/apartment-b37-t08-109-75.webp",
+      "sha256": "773121d29befd5919ba8b77e5a86a0aa03bc9aafaa7ace1e408a6aae1ed6512e"
+    },
+    {
+      "id": "b37-t09-42-73",
+      "page": 4,
+      "column": 2,
+      "category": "1k",
+      "area": "42,73",
+      "variant": "Блоки 3 и 7, тип 9",
+      "asset": "public/floorplans/apartment-b37-t09-42-73.webp",
+      "sha256": "b7162ea697ace75501b6f8c75d6c3ae9e027d8be9024822244758c4d2e8a960f"
+    },
+    {
+      "id": "b37-t10-66-16",
+      "page": 5,
+      "column": 1,
+      "category": "2k",
+      "area": "66,16",
+      "variant": "Блоки 3 и 7, тип 10",
+      "asset": "public/floorplans/apartment-b37-t10-66-16.webp",
+      "sha256": "a3c02ca7c481d98f42b084046afb369193a05aa5e4e37b1dd1ba1fc9d2468b99"
+    },
+    {
+      "id": "b37-t11-85-75",
+      "page": 5,
+      "column": 2,
+      "category": "2k",
+      "area": "85,75",
+      "variant": "Блоки 3 и 7, тип 11",
+      "asset": "public/floorplans/apartment-b37-t11-85-75.webp",
+      "sha256": "5d8aa6576d139e219827735dcfc416a2909a480648b667a74007bd8366e2d49a"
+    },
+    {
+      "id": "b37-t12-55-3",
+      "page": 6,
+      "column": 1,
+      "category": "e2",
+      "area": "55,3",
+      "variant": "Блоки 3 и 7, тип 12",
+      "asset": "public/floorplans/apartment-b37-t12-55-3.webp",
+      "sha256": "d9dcd7e87902b4a06702eaadde7b4e07371855c98894d56b728beeec9bba8d12"
+    },
+    {
+      "id": "b37-t13-59-4",
+      "page": 6,
+      "column": 2,
+      "category": "e2",
+      "area": "59,4",
+      "variant": "Блоки 3 и 7, тип 13",
+      "asset": "public/floorplans/apartment-b37-t13-59-4.webp",
+      "sha256": "5fedc9aa2bb87428812b7fad01165f3fede5268c29272bedecb15c50245280e0"
+    },
+    {
+      "id": "b37-t14-55-3",
+      "page": 6,
+      "column": 3,
+      "category": "e2",
+      "area": "55,3",
+      "variant": "Блоки 3 и 7, тип 14",
+      "asset": "public/floorplans/apartment-b37-t14-55-3.webp",
+      "sha256": "301653f9c335fb83220355cd893208247c6c034e8591e15da57cbf63d589dbd4"
+    },
+    {
+      "id": "b4-t01-84-92",
+      "page": 7,
+      "column": 1,
+      "category": "2k",
+      "area": "84,92",
+      "variant": "Блок 4, тип 1",
+      "asset": "public/floorplans/apartment-b4-t01-84-92.webp",
+      "sha256": "801bf3045e04694b3396f28abd62bf1fdba85da8acf6c8394a39402349a9fb95"
+    },
+    {
+      "id": "b4-t02-139-58",
+      "page": 7,
+      "column": 2,
+      "category": "3k",
+      "area": "139,58",
+      "variant": "Блок 4, тип 2",
+      "asset": "public/floorplans/apartment-b4-t02-139-58.webp",
+      "sha256": "37d011502772fa9e8fd4e4c0f6860b0d7ead87cc43f4f90e6f68a67d14664903"
+    },
+    {
+      "id": "b4-t03-56-32",
+      "page": 8,
+      "column": 1,
+      "category": "1k",
+      "area": "56,32",
+      "variant": "Блок 4, тип 3",
+      "asset": "public/floorplans/apartment-b4-t03-56-32.webp",
+      "sha256": "09f25bc394b60be4404bd44db9f867958bea364af2a9353e5d1ab4c2d8cbacfb"
+    },
+    {
+      "id": "b4-t04-86-09",
+      "page": 8,
+      "column": 2,
+      "category": "2k",
+      "area": "86,09",
+      "variant": "Блок 4, тип 4",
+      "asset": "public/floorplans/apartment-b4-t04-86-09.webp",
+      "sha256": "5f8a9533b5bc190cba1919fba62f498e1d5ea888c01e50322668100655988a00"
+    },
+    {
+      "id": "b4-t05-52-37",
+      "page": 9,
+      "column": 1,
+      "category": "1k",
+      "area": "52,37",
+      "variant": "Блок 4, тип 5",
+      "asset": "public/floorplans/apartment-b4-t05-52-37.webp",
+      "sha256": "cf091cb8ddb7b589e64b1228754e7361bdfb14326f9453097d93b9c8f5c57e38"
+    },
+    {
+      "id": "b4-t06-51-92",
+      "page": 9,
+      "column": 2,
+      "category": "1k",
+      "area": "51,92",
+      "variant": "Блок 4, тип 6",
+      "asset": "public/floorplans/apartment-b4-t06-51-92.webp",
+      "sha256": "d492a9d71ec6b6b98f3c0b2002a2b21c94acda7a8d96ab4b0b47a249fcd530a2"
+    },
+    {
+      "id": "b4-t07-50-42",
+      "page": 9,
+      "column": 3,
+      "category": "1k",
+      "area": "50,42",
+      "variant": "Блок 4, тип 7",
+      "asset": "public/floorplans/apartment-b4-t07-50-42.webp",
+      "sha256": "9018bb09e7ba489841253787254ea4545aabbb9c941769631f2b4bf9abb4d125"
+    }
+  ]
+}
